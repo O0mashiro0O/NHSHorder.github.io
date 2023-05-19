@@ -1,0 +1,658 @@
+body {
+    font-family: "Lato", sans-serif;
+    background-size: cover;
+    background-position: center top;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    -webkit-user-drag: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* 放大圖片 */
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.1s linear;
+}
+
+.image-container:hover {
+    transform: scale(1.05);
+    transition: all 0.1s linear;
+}
+
+.image-container:active {
+    transform: scale(1.1);
+}
+
+.image-container img {
+    max-width: 100%;
+}
+
+input {
+    /* input光標顏色 */
+    border-color: #826f484d;
+}
+
+input:focus {
+    /* 去除input點下時的邊框 */
+    outline: none;
+}
+
+
+/* Alert */
+.alert-heading {
+    text-align: center;
+    color: red;
+}
+
+.alert {
+    text-align: center;
+}
+
+/* 網頁捲軸【寬度】 */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* 網頁捲軸【背景】顏色 */
+::-webkit-scrollbar-track {
+    background-color: #FAD6894D;
+}
+
+/* 網頁捲軸【把手】顏色 */
+::-webkit-scrollbar-thumb {
+    background: rgba(212, 212, 212);
+}
+
+/* 網頁捲軸【滑過時】把手的顏色 */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(139, 138, 138);
+}
+
+
+/*浮動式的回到網頁頂部按鈕*/
+.scrollup {
+    position: fixed;
+    /*使該元素相對於viewport固定定位，不會因為滾動而改變位置*/
+    z-index: 90;
+    /*設置該元素的z-index層級，用於覆蓋其他元素*/
+    right: 30px;
+    bottom: 31px;
+    display: none;
+    /*設置該元素初始時是不可見的*/
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    background: rgb(248, 147, 31);
+    line-height: 46px;
+    /*設置該元素內容的行高為50px，使內容垂直居中顯示*/
+    border-radius: 50%;
+    transition: all 0.2s;
+    /*設置該元素所有屬性的變化都要在0.5秒內完成，創造流暢的動畫效果*/
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    /*設置該元素的陰影樣式，包括水平偏移量、垂直偏移量、模糊度和顏色，使元素具有立體感和深度感。*/
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.TimeSelect {
+    /* position: absolute;
+    left: 38.5%; */
+    position: relative;
+    left: 9.5%;
+}
+
+
+/* 讓type=number時沒有上下箭頭 */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+div.FoodName {
+    display: block;
+}
+
+/*
+    form{
+        display:inline-block;
+        width:auto;
+        height:auto;
+        }*/
+
+/*  菜單介紹線  */
+.menu {
+    height: 60px;
+    line-height: 1px;
+    text-align: center;
+}
+
+.menu .line {
+    display: inline-block;
+    width: 25%;
+    border-top: 3px solid rgb(155, 154, 154);
+}
+
+.menu .txt {
+    color: rgb(69, 69, 69);
+    vertical-align: middle;
+    font-size: 230%;
+}
+
+
+/*  Boostrap Modal  */
+.btn-close {
+    position: absolute;
+    /* 相對於 .modal-header 定位 */
+    top: 34%;
+    /* 距離 header 頂端的距離 */
+    right: 15px;
+    /* 距離 header 右側的距離 */
+}
+
+.modal-content {
+    background-color: burlywood;
+}
+
+.modal-header {
+    position: relative;
+    /* 讓 .btn-close 相對於此元素定位 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    /* 設定固定高度 */
+}
+
+.modal-header h3 {
+    font-size: 30px;
+    color: rgb(133, 30, 30);
+    text-align: center;
+    margin: 0 auto;
+}
+
+.modal-body form .account,
+.modal-body form .password {
+    margin: 30px;
+    width: 90%;
+    border-radius: 20px;
+}
+
+#TypeError .modal-dialog {
+    top: -40%;
+    width: 20%;
+}
+
+.remember {
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+
+.modal-body form .btn {
+    width: 100%;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+}
+
+
+/* btn 微動畫 */
+.btn {
+    transition: .1s;
+}
+
+.btn:hover {
+    /* :hover 代表滑鼠移到元素上時的狀態 */
+    transform: scale(1.05);
+}
+
+.btn:active {
+    /* :active是滑鼠點擊元素的狀態 */
+    transform: scale(1);
+    box-shadow: inset 0 0 10px 1px #a48e5e4d;
+    ;
+}
+
+
+/*  目錄  */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #FAD6894D;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: rgb(133, 30, 30);
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.openbtn {
+    font-size: 150%;
+    cursor: pointer;
+    color: rgb(133, 30, 30);
+    background-color: rgba(1, 1, 1, 0);
+    align-content: left;
+    border: none;
+}
+
+.openbtn:hover {
+    background-color: rgb(248, 147, 31);
+    color: rgba(255, 255, 255);
+    border-radius: 5px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+
+
+/*幻燈片*/
+#lightslider-wrapper {
+    /*幻燈片大小*/
+    width: 80%;
+    margin: 0 auto;
+}
+
+#lightslider img {
+    /*圖片間隙*/
+    width: calc(100%);
+}
+
+
+/* 數字重製 */
+.reset-icon {
+    width: 2%;
+    height: 2%;
+    margin-left: 1%;
+    cursor: pointer;
+}
+
+.rotate {
+    animation: rotateAnimation 1s linear;
+}
+
+@keyframes rotateAnimation {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(1080deg);
+    }
+  }
+
+
+
+/*最下面*/
+.table {
+    background-color: rgba(247, 201, 148, 0.508);
+    padding: 2%;
+    width: 100%;
+    font-size: 170%;
+}
+
+#lightslider img {
+    width: calc(100%);
+}
+
+/*Line FB... icon*/
+a.socialItem_odd {
+    cursor: pointer;
+    filter: grayscale(100%);
+    transition: linear 150ms;
+}
+
+a.socialItem_odd:hover {
+    filter: grayscale(0);
+}
+
+
+/*大於1295*/
+@media only screen and (min-width: 1295px) {
+
+    .FoodName {
+        font-size: 150%;
+        color: rgb(89, 89, 89);
+        font-weight: bold;
+    }
+
+    .FoodPrice {
+        font-size: 150%;
+        color: rgb(89, 89, 89);
+        font-weight: bold;
+        margin-right: 5px;
+    }
+
+    input.qtyplus,
+    input.qtyminus {
+        width: 15%;
+        /* font-size: 15px; */
+        border-width: 1px;
+        border-radius: 5px;
+        background: #f8f8f8;
+        cursor: pointer;
+        margin: 10px 0px 10px 0px;
+    }
+
+    .qty {
+        font-size: 20px;
+        border: none;
+        border-radius: 5px;
+        width: 50px;
+        height: 35px;
+        /* background: #f8f8f8; */
+        /* background: #ee0606; */
+        text-align: center;
+        margin: 10px 1px;
+    }
+
+    .imagesize {
+        width: 15vw;
+        height: 10vw;
+    }
+}
+
+/*小於1295*/
+@media only screen and (max-width: 1295px) {
+
+    .FoodName {
+        font-size: 120%;
+        color: rgb(89, 89, 89);
+        font-weight: bold;
+    }
+
+    .FoodPrice {
+        font-size: 110%;
+        color: rgb(89, 89, 89);
+        font-weight: bold;
+        margin-right: 5px;
+    }
+
+    input.qtyplus,
+    input.qtyminus {
+        font-size: 13.5px;
+        border-width: 1px;
+        border-radius: 5px;
+        background: #f8f8f8;
+        cursor: pointer;
+        width: 19.77px;
+        height: 21.68px;
+        /* margin: 8px 0px; */
+    }
+
+    .qty {
+        font-size: 14.58px;
+        border: none;
+        border-radius: 5px;
+        width: 34.57px;
+        height: 25.9px;
+        background: #f0a709;
+        /* background: #f8f8f8; */
+        text-align: center;
+        margin: 5px 0px 20px 0px;
+    }
+
+    .imagesize {
+        width: 14.55vw;
+        height: 9.7vw;
+    }
+}
+
+/*小於900*/
+@media only screen and (max-width: 900px) {
+
+    .FoodName {
+        font-size: 105%;
+        color: rgb(89, 89, 89);
+        font-weight: bold;
+    }
+
+    .FoodPrice {
+        font-size: 90%;
+        color: rgb(89, 89, 89);
+        font-weight: bold;
+        margin-right: 0px;
+    }
+
+    input.qtyplus,
+    input.qtyminus {
+        font-size: 65%;
+        border-width: 1px;
+        border-radius: 5px;
+        background: #f8f8f8;
+        cursor: pointer;
+        width: 16%;
+        height: 17.6%;
+        /* margin: 8px 0px; */
+    }
+
+    .qty {
+        font-size: 15.9px;
+        border: none;
+        border-radius: 5px;
+        width: 30.75px;
+        height: 23.06px;
+        /* background: #f8f8f8; */
+        background: #c2cf05;
+        text-align: center;
+        margin: 0px 0px 20px 0px;
+    }
+
+    .imagesize {
+        width: 15vw;
+        height: 10vw;
+    }
+}
+
+/*小於767*/
+@media only screen and (max-width: 767.5px) {
+
+    .FoodName {
+        font-size: 100%;
+        color: rgb(89, 89, 89);
+        font-weight: bold;
+    }
+
+    .FoodPrice {
+        font-size: 90%;
+        color: rgb(89, 89, 89);
+        font-weight: bold;
+        margin-right: 0px;
+    }
+
+    input.qtyplus,
+    input.qtyminus {
+        font-size: 15px;
+        border-width: 1px;
+        border-radius: 5px;
+        background: #f8f8f8;
+        cursor: pointer;
+        width: 18px;
+        height: 19.737px;
+        /* margin: 8px 0px; */
+    }
+
+    .qty {
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        width: 30.75px;
+        height: 23.06px;
+        /* background: #f8f8f8; */
+        background: #e10e97;
+        text-align: center;
+        margin: 0px 0px 20px 0px;
+    }
+
+    .imagesize {
+        width: 15vw;
+        height: 10vw;
+    }
+}
+
+/*小於575*/
+@media only screen and (max-width: 575px) {
+
+    .FoodName {
+        font-size: 120%;
+        color: rgb(89, 89, 89);
+        font-weight: bold;
+    }
+
+    .FoodPrice {
+        font-size: 120%;
+        color: rgb(89, 89, 89);
+        font-weight: bold;
+        margin-right: 5px;
+    }
+
+    input.qtyplus,
+    input.qtyminus {
+        font-size: 15px;
+        border-width: 1px;
+        border-radius: 5px;
+        background: #f8f8f8;
+        cursor: pointer;
+        width: 20px;
+        height: 21.93px;
+        /* margin: 8px 0px; */
+    }
+
+
+    .qty {
+        font-size: 20px;
+        border: none;
+        border-radius: 5px;
+        width: 50px;
+        height: 35px;
+        /* background: #f8f8f8; */
+        background: #06f52a;
+        text-align: center;
+        margin: 10px 0px 10px 0px;
+    }
+
+
+    .imagesize {
+        width: 16vw;
+        height: 10.67vw;
+    }
+}
+
+/*小於330*/
+@media only screen and (max-width: 330px) {
+
+    .FoodName {
+        font-size: 120%;
+        color: rgb(89, 89, 89);
+        font-weight: bold;
+    }
+
+    .FoodPrice {
+        font-size: 120%;
+        color: rgb(89, 89, 89);
+        font-weight: bold;
+        margin-right: 5px;
+    }
+
+    input.qtyplus,
+    input.qtyminus {
+        font-size: 15px;
+        border-width: 1px;
+        border-radius: 5px;
+        background: #f8f8f8;
+        cursor: pointer;
+        width: 20px;
+        height: 21.93px;
+        /* margin: 8px 0px; */
+    }
+
+
+    .qty {
+        font-size: 20px;
+        border: none;
+        border-radius: 5px;
+        width: 50px;
+        text-align: center;
+        height: 35px;
+        /* background: #f8f8f8; */
+        background: #530bed;
+        margin: 10px 0px 10px 0px;
+    }
+
+
+    .imagesize {
+        width: 16vw;
+        height: 10.67vw;
+        margin-right: 3px;
+        margin-left: 3px;
+    }
+}
+
+/* .loading {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+
+    background-color: rgba(0, 0, 0, .40);
+    backdrop-filter: blur(5px);
+
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.loading::after {
+    content: "";
+    height: 48px;
+    width: 48px;
+    display: block;
+    border: 2px solid white;
+    border-radius: 48px;
+    border-right-color: transparent;
+
+    animation: infinite rotate .5s linear;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+} */

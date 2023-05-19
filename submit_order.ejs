@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit_order</title>
+    <style>
+      .container {
+        display: flex;
+        justify-content: space-between;
+        font-size: 32px;
+        font-weight: bold;
+      }
+
+      .left-align {
+        text-align: left;
+      }
+
+      .center-align {
+        text-align: center;
+      }
+
+      .right-align {
+        text-align: right;
+      }
+    </style>
+  </head>
+
+  <body>
+    <%_ if(typeof totalPrice !=="undefined" ){ _%>
+
+
+
+    <!-- 自助區 -->
+    <% if (Object.values(orders).some(order=> order.category === '自助區')) { %>
+    <h1>自助區</h1>
+    <table style="border-spacing: 45px 1rem;font-size: 150%;">
+      <thead>
+        <tr>
+          <th>餐點</th>
+          <th>數量</th>
+          <th>價格</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% Object.values(orders).forEach(function(order) { %>
+        <% if (order.category==='自助區' ) { %>
+        <tr>
+          <td>
+            <%= order.name %>
+          </td>
+          <td>
+            <%= order.qty %>
+          </td>
+          <td>
+            <%= order.price %>
+          </td>
+        </tr>
+        <% } %>
+        <% }); %>
+      </tbody>
+    </table>
+    <% } %>
+
+
+
+    <!-- 麵食區 -->
+    <% if (Object.values(orders).some(order=> order.category === '麵食區')) { %>
+    <h1>麵食區</h1>
+    <table style="border-spacing: 45px 1rem;font-size: 150%;">
+      <thead>
+        <tr>
+          <th>餐點</th>
+          <th>數量</th>
+          <th>價格</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% Object.values(orders).forEach(function(order) { %>
+        <% if (order.category==='麵食區' ) { %>
+        <tr>
+          <td>
+            <%= order.name %>
+          </td>
+          <td>
+            <%= order.qty %>
+          </td>
+          <td>
+            <%= order.price %>
+          </td>
+        </tr>
+        <% } %>
+        <% }); %>
+      </tbody>
+    </table>
+    <% } %>
+
+
+
+    <!-- 速食區 -->
+    <% if (Object.values(orders).some(order=> order.category === '速食區')) { %>
+    <h1>速食區</h1>
+    <table style="border-spacing: 45px 1rem;font-size: 150%;">
+      <thead>
+        <tr>
+          <th>餐點</th>
+          <th>數量</th>
+          <th>價格</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% Object.values(orders).forEach(function(order) { %>
+        <% if (order.category==='速食區' ) { %>
+        <tr>
+          <td>
+            <%= order.name %>
+          </td>
+          <td>
+            <%= order.qty %>
+          </td>
+          <td>
+            <%= order.price %>
+          </td>
+        </tr>
+        <% } %>
+        <% }); %>
+      </tbody>
+    </table>
+    <% } %>
+
+
+
+    <h1>共計：<%= Object.keys(orders).length %>份      總計：$<%= totalPrice %></h1>
+    <div class="container">
+      <div class="left-align">取餐號碼：<%= userCount %></div>
+      <div class="center-align">班級座號：<%= classNumber %></div>
+      <div class="right-align">學生ID：<%= studentID %></div>
+    </div>
+    <h1>取餐時間：<%= orderTime %></h1>
+    <%_ } _%>               
+
+  </body>
+
+</html>

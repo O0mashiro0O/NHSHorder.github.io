@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="refresh" content="60">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>order</title>
+
+    <!--nhsh icon-->
+    <link rel="shortcut icon"
+        href="https://www.nhsh.tp.edu.tw/static/webroot/M161785425337002/image/NP163108251912313.png">
+    <!--CSS引用-->
+    <link rel="stylesheet" type="text/css" href="/css/css1.css">
+    <!-- Boodtrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <!-- Boodtrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- jQuery cookie -->
+    <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <!-- JQuery lightSlider v1.1.6 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <!-- Animate On Scroll Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+</head>
+
+
+
+<body>
+
+    <!--浮動式的回到網頁頂部按鈕-->
+    <a href="#" class="scrollup" style="text-decoration: none;">
+        &and;
+    </a>
+
+    <!--目錄往右縮排-->
+    <div id="main">
+        <!-- <button onclick="button()">button</button> -->
+        <!-- 內中Logo -->
+        <img style="width:38.4%;height:30.4%;padding:1.33% 0 0 10%;float:left;display:block;"
+            src="https://www.nhsh.tp.edu.tw/static/webroot/G161717471158770/image/NP161940510480134.png">
+
+        <!--目錄-->
+        <div style="padding:5% 0 1.5% 0;"></div>
+        <!-- <div style="padding:3% 0 1.5% 0;"></div> -->
+        <div
+            style="padding: 0.5% 2% 0.5% 2%;margin:0 10%;background-color:#FAD6894D;align-items:left;border-radius: 10px 10px 0 0;">
+            <button class="openbtn" onclick="openNav()">☰目錄</button>
+
+
+            <!-- 會員登入 -->
+            <a href="#" type="button" id="display_model" data-bs-toggle="modal" class="openbtn"
+                style="float:right;text-align:center;text-decoration:none;font-size:150%;padding:2px 5px 2px 7px;margin:0 0 0 40px;">結帳</a>
+
+            <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#loginModal" class="openbtn"
+                style="float:right;text-align:center;text-decoration:none;font-size:150%;padding:2px 5px 2px 7px;">身分</a>
+            <a style="float:right;">&nbsp&nbsp&nbsp&nbsp</a>
+        </div>
+
+
+        <!--三條線-->
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <a href="#self_serve">自助</a>
+            <a href="#noodle">麵食</a>
+            <a href="#fast_food">速食</a>
+            <a href="https://www.nhsh.tp.edu.tw/">內湖高中官網</a>
+            <a
+                href="https://sites.google.com/nhsh.tp.edu.tw/life/%E9%A6%96%E9%A0%81/%E9%A3%9F%E7%89%A9%E7%AF%87?authuser=0">熱食部介紹</a>
+        </div>
+
+
+        <!--幻燈片-->
+        <div id="lightslider-wrapper">
+            <ul id="lightslider">
+                <li data-thumb="https://www.linkpicture.com/q/bds_aboutus.png">
+                    <img src="https://www.linkpicture.com/q/bds_aboutus.png" type="image"></a>
+                </li>
+                <li data-thumb="https://www.linkpicture.com/q/Food-Image.jpg">
+                    <img src="https://www.linkpicture.com/q/Food-Image.jpg" type="image"></a>
+                </li>
+                <li data-thumb="https://www.linkpicture.com/q/Restaurant-license.webp">
+                    <img src="https://www.linkpicture.com/q/Restaurant-license.webp" type="image"></a>
+                </li>
+                <li data-thumb="https://www.linkpicture.com/q/Thank-You-Page-Image_1500x.jpg">
+                    <img src="https://www.linkpicture.com/q/Thank-You-Page-Image_1500x.jpg" type="image"></a>
+                </li>
+            </ul>
+        </div>
+
+
+
+
+
+        <!-- 跳出視窗內容 -->
+        <div class="modal fade" id="loginModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 style="font-weight:bold">內湖高中熱食部</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- 登入表單 -->
+                        <form method="POST" action="/submit_order">
+                            <!-- classno -->
+                            <div class="form-group">
+                                <input type="number" id="classNumber" class="account form-control" placeholder="班級座號"
+                                    oninput="if(value.length>5)value=value.slice(0,5);" autocomplete="on" required>
+
+                                <!-- password -->
+                                <input type="number" id="studentID" class="password form-control" placeholder="學號 "
+                                    oninput="if(value.length>5)value=value.slice(0,8);" autocomplete="on" required>
+
+                                <!-- checkbox -->
+                                <label>
+                                    <input type="checkbox" class="remember">記住我
+                                </label>
+
+                                <!-- 送出按鈕 -->
+                                <button type="button" class="btn btn-info" onclick="submitForm()"
+                                    style="background-color:#FAD6894D;color:rgb(133, 30, 30);border-color:rgb(133, 30, 30);width:95%;margin-left:2.5%;">
+                                    確認
+                                </button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- 訂單內容 -->
+        <div class="modal fade" id="checkout">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="text-center" style="font-weight:bold;">訂單內容</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-message modal-body">
+                    </div>
+                    <div class="modal-message2 modal-body">
+                        <!--
+                            <div class="form-group">
+                                <input type="checkbox" class="remember">請確認訂單，送出後不可更改
+                            </div>
+                            -->
+                        <div class="form-group">
+                            <form method="POST" action="/submit_order">
+                                <%_ if(typeof userCount !=="undefined" ){ _%>
+                                    <center>
+                                        <span style="text-align:center;">
+                                            <small style="font-weight: bold;">
+                                                <span style="font-weight: bold;color: red;">
+                                                    <%= dateStr %>
+                                                </span>
+                                                取餐時間</small><br>
+                                            <select name="ordertime" id="OrderTime" class="TimeSelect">
+                                                <option value="10:00~10:10">10:00~10:10</option>
+                                                <option value="11:00~11:10">11:00~11:10</option>
+                                                <option value="12:00~12:10" selected>12:00~12:10</option>
+                                                <option value="12:10~12:20">12:10~12:20</option>
+                                                <option value="12:20~12:30">12:20~12:30</option>
+                                            </select>
+                                        </span>
+
+                                        <span style="float:right;">取餐號碼：<%= userCount + 1 %></span>
+                                        <button type="submit" class="btn btn-info" id="submitorderbtn"
+                                            style="background-color:#FAD6894D;color:rgb(133, 30, 30);border-color:rgb(133, 30, 30);width:95%;">
+                                            確認送出
+                                        </button>
+                            </form>
+                            </center>
+                            <%_ } _%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- 提交錯誤資訊類型 -->
+        <div class="modal fade" id="TypeError">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="text-center" style="font-size:30px;font-weight:bold;color:red;margin:0 auto;">
+                            資料錯誤</div>
+                    </div>
+                    <div class="modal-message modal-body" style="text-align:center;"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!--菜單頁面-->
+        <center>
+
+            <div data-aos="fade-up">
+                <!--line-->
+                <div class="menu" style="padding:2.2% 2% 2% 2%;">
+                    <span style="white-space:pre"></span><span class="line"></span>
+                    <span style="white-space:pre"></span><a class="txt" id="self_serve"
+                        style="text-decoration: none;">&nbsp
+                        自助區
+                        &nbsp</a>
+                    <span style="white-space:pre"></span><span class="line"></span>
+                </div>
+
+
+
+
+                <div class="row">
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://imageproxy.icook.network/resize?background=255%2C255%2C255&nocrop=true&stripmeta=true&type=auto&url=http%3A%2F%2Ftokyo-kitchen.icook.tw.s3.amazonaws.com%2Fuploads%2Frecipe%2Fcover%2F242977%2F1ad980d6163d3120.jpg&width=443"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">花椰菜</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$10</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="Brocoli" />
+                                <input type="number" name="Brocoli" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="Brocoli" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://img-global.cpcdn.com/recipes/ea7e06e878419c80/1360x964cq70/%E8%B1%86%E7%93%A3%E8%8C%84%E5%AD%90%E5%85%A8%E7%B4%A0-%E9%A3%9F%E8%AD%9C%E6%88%90%E5%93%81%E7%85%A7%E7%89%87.webp"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">茄子</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$10</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="Eggplant" />
+                                <input type="number" name="Eggplant" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="Eggplant" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://d3l76hx23vw40a.cloudfront.net/recipe/webp/bk186-016a.webp" alt="food">
+                        </div>
+                        <div class="FoodName">紅蘿蔔炒蛋</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$10</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="CarrotScrambledEggs" />
+                                <input type="number" name="CarrotScrambledEggs" value="0" class="qty" max="10"
+                                    min="0" />
+                                <input type="button" value="+" class="qtyplus" field="CarrotScrambledEggs" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://www.tcnews.com.tw/images/news/2023/Apr/07/S__60130300.jpg" alt="food">
+                        </div>
+                        <div class="FoodName">炸塊狀豆腐</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$10</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="FriedChunkyTofu" />
+                                <input type="number" name="FriedChunkyTofu" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="FriedChunkyTofu" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://d3l76hx23vw40a.cloudfront.net/recipe/webp/gy32-038c.webp" alt="food">
+                        </div>
+                        <div class="FoodName">豆干</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$10</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="DriedTofu" />
+                                <input type="number" name="DriedTofu" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="DriedTofu" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://3.bp.blogspot.com/-wrws1OvSKBc/VHHed4J7BBI/AAAAAAAANjk/TEmMm7c-0pI/s1600/01.jpg"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">蒸蛋</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$10</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="SteamedEgg" />
+                                <input type="number" name="SteamedEgg" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="SteamedEgg" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://imageproxy.icook.network/resize?background=255%2C255%2C255&nocrop=true&stripmeta=true&type=auto&url=http%3A%2F%2Ftokyo-kitchen.icook.tw.s3.amazonaws.com%2Fuploads%2Frecipe%2Fcover%2F387466%2F42b3f7f926b78696.jpg&width=443"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">小黃瓜炒蛋</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$10</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="CucumberScrambledEggs" />
+                                <input type="number" name="CucumberScrambledEggs" value="0" class="qty" max="10"
+                                    min="0" />
+                                <input type="button" value="+" class="qtyplus" field="CucumberScrambledEggs" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://img-global.cpcdn.com/recipes/6d2a34895fbd051883a335360869e257/1360x964cq70/%E7%84%97%E7%83%A4%E5%9F%B9%E6%A0%B9%E9%A6%AC%E9%88%B4%E8%96%AF-%E9%A3%9F%E8%AD%9C%E6%88%90%E5%93%81%E7%85%A7%E7%89%87.webp"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">馬鈴薯焗烤</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$10</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="PotatoGratin" />
+                                <input type="number" name="PotatoGratin" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="PotatoGratin" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://img.ltn.com.tw/Upload/food/page/2017/02/27/170227-5410-0-Gomlh.jpg"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">咖哩</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$10</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="Curry" />
+                                <input type="number" name="Curry" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="Curry" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://imageproxy.icook.network/resize?background=255%2C255%2C255&nocrop=true&stripmeta=true&type=auto&url=http%3A%2F%2Ftokyo-kitchen.icook.tw.s3.amazonaws.com%2Fuploads%2Frecipe%2Fcover%2F357974%2F126b10b9f1a2a83e.jpg&width=443"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">番茄炒蛋</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$10</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="TomatoScrambledEggs" />
+                                <input type="number" name="TomatoScrambledEggs" value="0" class="qty" max="10"
+                                    min="0" />
+                                <input type="button" value="+" class="qtyplus" field="TomatoScrambledEggs" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://imageproxy.icook.network/resize?background=255%2C255%2C255&nocrop=true&stripmeta=true&type=auto&url=http%3A%2F%2Ftokyo-kitchen.icook.tw.s3.amazonaws.com%2Fuploads%2Frecipe%2Fcover%2F349759%2F5f89f023db5f0378.jpg&width=443"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">韓式年糕</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$10</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="KoreanRiceCake" />
+                                <input type="number" name="KoreanRiceCake" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="KoreanRiceCake" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://d3l76hx23vw40a.cloudfront.net/recipe/webp/gy47-040.webp" alt="food">
+                        </div>
+                        <div class="FoodName">宮保雞丁</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$20</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="KungPaoChicken" />
+                                <input type="number" name="KungPaoChicken" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="KungPaoChicken" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://imageproxy.icook.network/resize?background=255%2C255%2C255&nocrop=true&stripmeta=true&type=auto&url=http%3A%2F%2Ftokyo-kitchen.icook.tw.s3.amazonaws.com%2Fuploads%2Frecipe%2Fcover%2F282595%2F8df3a79d1ee5505c.jpg&width=443"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">魚排</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$20</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="FishSteak" />
+                                <input type="number" name="FishSteak" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="FishSteak" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://s.yimg.com/ny/api/res/1.2/U.hCfDfaHoouLt0ENptuoQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTY0MTtjZj13ZWJw/https://s.yimg.com/os/creatr-uploaded-images/2023-02/fd4c56e0-ab52-11ed-b6bf-1e70883f1547"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">雞排</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$20</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="Chickensteak" />
+                                <input type="number" name="Chickensteak" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="RowG" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://shoplineimg.com/5a1144b372fdc0a86c004895/5e4e3c444f0df0001b93bcb7/800x.webp?source_format=jpg"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">香腸</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$20</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="Sausage" />
+                                <input type="number" name="Sausage" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="Sausage" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://imageproxy.icook.network/resize?background=255%2C255%2C255&nocrop=true&stripmeta=true&type=auto&url=http%3A%2F%2Ftokyo-kitchen.icook.tw.s3.amazonaws.com%2Fuploads%2Frecipe%2Fcover%2F341720%2F7947440ef1e5dace.jpg&width=443"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">泡菜炒肉</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$20</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="KimchiFriedPork" />
+                                <input type="number" name="KimchiFriedPork" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="KimchiFriedPork" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://www.jucanw.com/wcs/Upload/201805/5afc1c4d32bc9.jpg" alt="food">
+                        </div>
+                        <div class="FoodName">炒豬肉</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$20</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="FriedPork" />
+                                <input type="number" name="FriedPork" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="FriedPork" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://tokyo-kitchen.icook.network/uploads/recipe/cover/341106/3f4d3210243a3867.jpg"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">紅蘿蔔燉牛肉</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$20</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="Stewedbeef" />
+                                <input type="number" name="Stewedbeef" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="Stewedbeef" />
+                            </label>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div data-aos="fade-up">
+
+                <!--line-->
+                <div class="menu" style="padding:2.2% 2% 2% 2%;">
+                    <span style="white-space:pre"></span><span class="line"></span>
+                    <span style="white-space:pre"></span><a class="txt" id="noodle" style="text-decoration: none;">&nbsp
+                        麵食區 &nbsp</a>
+                    <span style="white-space:pre"></span><span class="line"></span>
+                </div>
+
+
+
+
+                <div class="row">
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://jiajiafood.com.tw/images/product/5/single/pd5-7.jpg" alt="food">
+                        </div>
+                        <div class="FoodName">麻辣燙</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$60</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="MalaTang" />
+                                <input type="number" name="MalaTang" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="MalaTang" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://www.wumamii.com.tw/data/article/1633153940LD2BT_0.jpg" alt="food">
+                        </div>
+                        <div class="FoodName">麻辣湯餃</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$60</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="SpicySoupDumplings" />
+                                <input type="number" name="SpicySoupDumplings" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="SpicySoupDumplings" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://imageproxy.icook.network/resize?background=255%2C255%2C255&nocrop=true&stripmeta=true&type=auto&url=http%3A%2F%2Ftokyo-kitchen.icook.tw.s3.amazonaws.com%2Fuploads%2Frecipe%2Fcover%2F379059%2Fc84d4f46108f1a7d.jpg&width=443"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">小火鍋</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$60</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="hotpot" />
+                                <input type="number" name="hotpot" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="hotpot" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://imageproxy.icook.network/resize?background=255%2C255%2C255&nocrop=true&stripmeta=true&type=auto&url=http%3A%2F%2Ftokyo-kitchen.icook.tw.s3.amazonaws.com%2Fuploads%2Frecipe%2Fcover%2F300199%2F32d835ace4bb4852.jpg&width=443"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">牛奶鍋</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$60</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="MilkPot" />
+                                <input type="number" name="MilkPot" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="MilkPot" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://tw.wamazing.com/media/wp-content/uploads/sites/4/2019/07/hokaidou-ramen37194068_M.jpg"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">味噌拉麵</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$60</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="miso_ramen" />
+                                <input type="number" name="miso_ramen" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="miso_ramen" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://img-global.cpcdn.com/recipes/e9820a1f236b64e78962f5c5c71c907d/640x640sq70/photo.webp"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">醬油拉麵</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$60</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="soy_sauce_ramen" />
+                                <input type="number" name="soy_sauce_ramen" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="soy_sauce_ramen" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://tokyo-kitchen.icook.network/uploads/recipe/cover/203584/602f270d4b6f9103.jpg"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">管狀義大利麵</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$60</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="tube_pasta" />
+                                <input type="number" name="tube_pasta" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="tube_pasta" />
+                            </label>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <div data-aos="fade-up">
+
+                <!--line-->
+                <div class="menu" style="padding:2.2% 2% 2% 2%;">
+                    <span style="white-space:pre"></span><span class="line"></span>
+                    <span style="white-space:pre"></span><a id="fast_food" class="txt"
+                        style="text-decoration: none;">&nbsp
+                        速食區
+                        &nbsp</a>
+                    <span style="white-space:pre"></span><span class="line"></span>
+                </div>
+
+
+                <div class="row">
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://ireneslife.com/wp-content/uploads/2019/07/1562161518-56905c3845f4d6f6d5e24662afe16651.jpg"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">總匯三明治</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$40</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="Clubsandwich" />
+                                <input type="number" name="Clubsandwich" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="Clubsandwich" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://media.nownews.com/nn_media/thumbnail/2021/07/8962d25c-shutterstock_516637324-768x512.jpg?unShow=true&waterMark=false"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">紅茶</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$15</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="Blacktea" />
+                                <input type="number" name="Blacktea" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="Blacktea" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://obs.line-scdn.net/0hRILiZwlGDWZxECdrVG9yMUtGDglCfB5lFSZcZTJ-U1IOJxozRHVLU11FA1IMJEo4HyFCBVEVFldUcE01GnZL/w1200"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">奶茶</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$15</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="Milktea" />
+                                <input type="number" name="Milktea" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="Milktea" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="http://statics.melitabuy.com/uploadfile/2017/0731/20170731092842349.png"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">吐司</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$30</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="Toast" />
+                                <input type="number" name="Toast" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="Toast" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://www.joo.com.tw/steakhouse/uploads_product/website_1215/P0121500160672_3_814863.jpg?_9643"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">鐵板麵</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$40</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="IronPlateNoodles" />
+                                <input type="number" name="IronPlateNoodles" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="IronPlateNoodles" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://cdn.cybassets.com/s/files/9949/ckeditor/pictures/content_ef3d60d8-f211-454f-8859-ecaae350263b.jpg"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">蛋餅</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$25</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="EggCake" />
+                                <input type="number" name="EggCake" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="EggCake" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://photo.518.com.tw/selfmedia/articles/1695/165406761366449.jpeg" alt="food">
+                        </div>
+                        <div class="FoodName">漢堡</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$40</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="Hamburger" />
+                                <input type="number" name="Hamburger" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="Hamburger" />
+                            </label>
+                        </form>
+                    </div>
+                    <div class=" col-4 col-sm-3 col-md-2 col-lg-2 col-xl-2 ">
+                        <div class="image-container"><img class="imagesize"
+                                src="https://images.immediate.co.uk/production/volatile/sites/30/2021/03/French-fries-b9e3e0c.jpg?quality=90&webp=true&resize=375,341"
+                                alt="food">
+                        </div>
+                        <div class="FoodName">薯條</div>
+                        <form method="POST" action="/submit_order">
+                            <label>
+                                <span class="FoodPrice">$20</span>
+                                <input type="button" value="&minus;" class="qtyminus" field="Fries" />
+                                <input type="number" name="Fries" value="0" class="qty" max="10" min="0" />
+                                <input type="button" value="+" class="qtyplus" field="Fries" />
+                            </label>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="orderStatus" style="color:red;"></div>
+
+            <a id="display_model2" class="btn btn-lg btn-danger " style="font-size: 185%;padding: 0 10%;">提交訂單</a>
+            <img id="reset-icon"
+                src="https://static.vecteezy.com/system/resources/thumbnails/001/187/072/small_2x/arrow.png"
+                class="reset-icon" onclick="resetQuantities()">
+
+
+
+    </div>
+
+    </center>
+    <center>
+        <div class="table">
+            <div><strong>內湖高中第11屆資訊班成果發表會 nhcs_11th</strong></div>
+            <div>地點:內湖高中國際會議廳 nhcs_11th</div>
+            <div>時間:5月24日 PM 13:10 ~ 16:10</div>
+            <div><strong>第四組</strong></div>
+            <div>20808張喆崴 IG: kr.v.louis</div>
+            <div>20812陳俊霖 IG: jun_lin_27</div>
+            <div>20819蔡王竤 IG: jimmytsai0607</div>
+            <div>20823簡新城 IG: mashiro12321</div>
+        </div>
+    </center>
+
+
+    </div>
+</body>
+
+<!--JAVASCRIPT-->
+
+
+
+<script>
+
+    //漸入動畫
+    AOS.init({
+        duration: 400,
+    });
+
+    //浮動式的回到網頁頂部按鈕
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 600) {
+            $(".scrollup").fadeIn();
+        } else {
+            $(".scrollup").fadeOut();
+        }
+    })
+    $(".scrollup").click(function () {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 300);
+        return false;
+    })
+
+    //右鍵點擊時關閉表單
+
+    document.oncontextmenu = (e) => {
+        e.preventDefault();
+
+        // 優先順序為 TypeError, loginModal, checkout
+        if ($("#TypeError").hasClass("show")) {
+            $("#TypeError").modal("hide");
+        } else if ($("#loginModal").hasClass("show")) {
+            $("#loginModal").modal("hide");
+        } else if ($("#checkout").hasClass("show")) {
+            $("#checkout").modal("hide");
+        }
+    };
+
+    function resetQuantities() {
+        const quantityInputs = document.querySelectorAll(".qty");
+        const img = document.querySelector('.reset-icon');
+        img.classList.remove('rotate');
+        void img.offsetWidth; // 強制重繪
+        img.classList.add('rotate');
+        quantityInputs.forEach((input) => {
+            input.value = 0;
+        });
+    }
+
+    $("#lightslider").lightSlider({
+        // 參數設定[註1]
+        autoWidth: false,//是否可以自訂項目寬度
+        keyPress: true,//這行程式碼設定是否啟用鍵盤控制
+        //rtl:false,設置幻燈片的滾動方向，默認值為false，即從左到右滾動。如果設置為true，則幻燈片會從右到左滾動。
+        adaptiveHeight: false,//每個幻燈片的高度是否根據其內容自動調整
+        vertical: false,//垂直或水平滾動
+        //verticalHeight：設置垂直滾動的幻燈片的高度，默認值為500像素。
+        //vThumbWidth：設置垂直滾動模式下縮略圖的寬度。
+        slideMargin: 0,//邊界像素
+        //currentPagerPosition：設置分頁器當前頁碼的位置，可設置為"left", "middle", "right"。
+        //enableTouch：啟用或禁用觸摸滾動功能，默認為true。
+        //enableDrag：啟用或禁用拖動滾動功能，默認為true。
+        //freeMove：設置是否允許自由滑動，默認為true。
+        //thumbItem:3,//設置顯示的縮略圖數量。
+        speed: 400, // 切換速度
+        pause: 2000, //滑動暫停的時間
+        auto: true, // 自動切換
+        loop: true,//循環滑動
+        //addClass: "",添加自訂的class名稱
+        mode: "slide",//這行程式碼設定為滑動模式，其他選項為slide和fade和slideVertical。
+        item: 1, // 顯示數量
+        // responsive: [
+        //     {
+        //         breakpoint: 960, // 當螢幕大於此寬度時，則啟用此設定值
+        //         settings: {
+        //             item: 2, // 顯示數量
+        //             slideMove: 1 // 一次切換數量
+        //         }
+        //     },
+        //     {
+        //         breakpoint: 640, // 當螢幕大於此寬度時，則啟用此設定值
+        //         settings: {
+        //             item: 1, // 顯示張數
+        //             slideMove: 1 // 一次切換數量
+        //         }
+        //     }
+        // ]
+    });
+
+
+
+
+    //三條線
+
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "18%";
+        document.getElementById("main").style.marginLeft = "18%";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+    }
+
+    //自動跳出登入畫面
+
+    $(window).ready(() => {
+        $("#loginModal").modal("show");
+        // setTimeout(() => $("#loginModal").modal("show"), 1000);
+        // setTimeout(() => $("#loginModal").modal("hide"), 4000);
+    })
+    const show = () => {
+        $("#loginModal").modal("show");
+    }
+
+
+    //數量加減
+
+    $(function () {
+        $(".qtyplus").click(function (e) {
+            e.preventDefault();
+            const fieldName = $(this).attr("field");
+            const $input = $("input[name=" + fieldName + "]");
+            const val = parseInt($input.val());
+            const max = parseInt($input.attr("max"));
+            if (!isNaN(max) && val >= max) {
+                return false;
+            }
+            if (!isNaN(val)) {
+                $input.val(val + 1);
+            } else {
+                $input.val(0);
+            }
+        });
+
+        $(".qtyminus").click(function (e) {
+            e.preventDefault();
+            const fieldName = $(this).attr("field");
+            const $input = $("input[name=" + fieldName + "]");
+            const val = parseInt($input.val());
+            const min = parseInt($input.attr("min"));
+            if (!isNaN(min) && val <= min) {
+                return false;
+            }
+            if (!isNaN(val) && val > 0) {
+                $input.val(val - 1);
+            } else {
+                $input.val(0);
+            }
+        });
+
+        //確認訂單內容
+        $("#display_model, #display_model2").click(function (e) {
+            e.preventDefault();
+            const orders = [];
+            let invalidInput = false;
+
+            $("input.qty").each((i, el) => {
+                const qty = parseInt($(el).val());
+                const max = parseInt($(el).attr("max"));
+                if (qty > max) {
+                    invalidInput = true;
+                    $(el).addClass("invalid");
+                } else {
+                    $(el).removeClass("invalid");
+                }
+                if (!invalidInput) {
+                    const foodName = $("div.FoodName").eq(i).text();
+                    let orderMsg = "";
+                    let tableRows = "";
+                    let foodCategory = "";
+                    let currentCategory = "";
+                    let currentItems = "";
+                    let totalPrice = 0;
+                    let totalQty = 0;
+                    if (qty > 0) {
+                        orders.push({ name: foodName, qty: qty });
+                    }
+
+                    orders.forEach((order) => {
+                        const foodName = order.name;
+                        const foodQty = order.qty;
+                        const foodPrice = findFoodPrice(foodName);
+                        if (foodQty > 0) {
+                            order.price = findFoodPrice(order.name);
+                            foodCategory = findFoodCategory(foodName);
+                            order.category = foodCategory;
+                            if (currentCategory === "" || currentCategory === foodCategory) {
+                                currentItems += "<div style='display: flex; justify-content: space-between; align-items: center;'>" + "<span style='width: 45%;'>" + foodName + "</span>" + "<span style=' text-align: center;'>" + foodQty + "</span>" + "<span style='width: 45%; text-align: right;'>$" + foodPrice.toFixed(2) + "</span></div>";
+                                //tableRows += '<tr><td>' + foodName + '</td><td>' + foodQty + '</td><td>$' + foodPrice.toFixed(2) + '</td></tr>';
+                                totalQty += foodQty;
+                            } else {
+                                //orderMsg += "<div>" + currentCategory + "</div>" + currentItems;
+                                orderMsg += currentItems;
+                                currentItems = "<div style='display: flex; justify-content: space-between; align-items: center;'>" + "<span style='width: 45%;'>" + foodName + "</span>" + "<span style=' text-align: center;'>" + foodQty + "</span>" + "<span style='width: 45%; text-align: right;'>$" + foodPrice.toFixed(2) + "</span></div>";
+                                //tableRows += '<tr><td>' + foodName + '</td><td>' + foodQty + '</td><td>$' + foodPrice.toFixed(2) + '</td></tr>';
+                                totalQty += foodQty;
+                            }
+                            currentCategory = foodCategory;
+                            // 取得該餐點的價格，轉換為數字，乘上數量，加總到總價上
+                            totalPrice += parseInt(foodPrice) * foodQty;
+                        }
+                    });
+
+                    if (document.getElementById("classNumber").value === "" || document.getElementById("studentID").value === "") {
+                        $("#TypeError .modal-dialog").css("width", "90%");
+                        $("#TypeError .modal-dialog").css("top", "0");
+                        let ModelHrefMessage = "<span style='font-size:20px;color:rgb(133, 30, 30);display:block;' onclick='$(`#loginModal`).modal(`show`);$(`#TypeError`).modal(`hide`);'>修改表單</span>";
+                        submitForm(ModelHrefMessage);
+
+                    } else if (currentCategory !== "") {
+                        //orderMsg += "<div>" + currentCategory + "</div>" + currentItems;
+                        let tableHTML = '<table><tr><th>品名</th><th>數量</th><th>價格</th></tr>' + tableRows + '</table>';
+                        //tableHTML += '<hr/><div>共計：' + totalQty + '份<span style="float:right;">總計：$' + totalPrice.toFixed(2) + '</span></div>';
+                        orderMsg += "<div>" + currentItems + "</div>";
+                        orderMsg += "<hr/>";
+                        orderMsg += "<div>共計：" + totalQty + "份<span style='float:right;'>總計：$" + totalPrice.toFixed(2) + "</span></div>";
+                        document.querySelector("#checkout .modal-message").innerHTML = "<div style='display: flex; justify-content: space-between; align-items: center;'>" + "<span style='width: 45%;'>&nbsp品名&nbsp</span>" + "<span style=' text-align: center;'>數量</span>" + "<span style='width: 45%; text-align: right;'>價格&nbsp&nbsp</span></div><hr/>"
+                            + orderMsg;
+                        document.querySelector(".modal-message2").style.display = "block";
+                        $("#checkout").modal("show");
+                        //console.log(tableHTML);
+                        //console.log(document.querySelector("#checkout .modal-message").innerHTML);
+                    } else {
+                        document.querySelector("#checkout .modal-message").innerHTML = "<div style='display: flex; justify-content: center; align-items: center; height: 100%;'>您還未點餐</div>";
+                        document.querySelector(".modal-message2").style.display = "none";
+                        $("#checkout").modal("show");
+                    }
+
+
+
+                    function findFoodCategory(foodName) {
+                        const foodDivs = document.querySelectorAll(".col-4");
+                        let category = "";
+                        foodDivs.forEach((foodDiv) => {
+                            const divFoodName = foodDiv.querySelector(".FoodName").textContent;
+                            if (divFoodName === foodName) {
+                                const divParent = foodDiv.parentElement;
+                                category = divParent.previousElementSibling.querySelector("a").textContent.trim();
+                            }
+                        });
+                        return category;
+                    }
+
+                    function findFoodPrice(foodName) {
+                        const foodDivs = document.querySelectorAll(".col-4");
+                        let price = 0;
+                        foodDivs.forEach((foodDiv) => {
+                            const divFoodName = foodDiv.querySelector(".FoodName").textContent;
+                            if (divFoodName === foodName) {
+                                const priceElm = foodDiv.querySelector(".FoodPrice");
+                                price = Number(priceElm.textContent.replace(/[^0-9.-]+/g, ""));
+                            }
+                        });
+                        return price;
+                    }
+                } else {
+                    document.querySelector("#checkout .modal-message").innerHTML = "<div style='display: flex; justify-content: center; align-items: center; height: 100%;'>超過最大數量:" + max + "</div>";
+                    document.querySelector(".modal-message2").style.display = "none";
+                    $("#checkout").modal("show");
+                }
+            });
+
+
+
+
+            //console.log("max values:", $("input.qty").map((i, el) => $(el).attr("max")).get());
+            console.log("input values:", $("input.qty").map((i, el) => $(el).val()).get());
+
+            // 確定所有輸入框失焦，以更新輸入值的樣式
+            $("input.qty").blur();
+            $("#submitorderbtn").click(function (e) {
+                e.preventDefault(); // 防止默認提交行為
+
+                const orderTime = $("select[name='ordertime']").val();
+                const classNumber = document.querySelector("#classNumber").value;
+                const studentID = document.querySelector("#studentID").value;
+                console.log("1231231231", classNumber, studentID);
+
+                let order = {
+                    orders: orders,
+                    ordertime: orderTime,
+                    classNumber: classNumber,
+                    studentID: studentID
+                };
+                console.log("order", order);
+                sendOrder(order); // 傳送 AJAX 請求
+            });
+
+            function sendOrder(order) {
+                // 禁用提交按钮
+                $("#submitorderbtn").prop("disabled", true);
+                $.ajax({
+
+                    url: "/submit_order",
+                    type: "POST",
+                    data: order,
+                    success: function (data) {
+                        console.log(`Received order data: ${JSON.stringify(data.orders)}`);
+                        sendOrderSuccessHandler(data);
+
+                        // 从响应数据中获取 URL
+                        const url = data.url;
+                        // 使用 URL 跳转页面
+                        window.location.href = url;
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log("Failed to submit order:", errorThrown);
+                    },
+                    complete: function () {
+                        // 启用提交按钮
+                        $("#submitorderbtn").prop("disabled", false);
+                    }
+                });
+            }
+
+            function sendOrderSuccessHandler(response) {
+                // 在此處理回應
+                console.log("response:", response);
+                $("#orderStatus").text(response);
+
+                //提示框
+                if (invalidInput) {
+                    $("#display_model, #display_model2").popover("show");
+                } else {
+                    $("#display_model, #display_model2").popover("hide");
+                }
+
+                // 重新導向到 /submit_order
+                //window.location.href = "  /submit_order";
+            }
+
+        });
+    });
+
+
+    $("#submitorderbtn").on("click", function () {
+        // 移除監聽器
+        window.onbeforeunload = null;
+    });
+    window.onbeforeunload = function () {
+        const qtyInputs = $("input.qty");
+        for (let i = 0; i < qtyInputs.length; i++) {
+            const qty = parseInt(qtyInputs[i].value);
+            if (qty > 0) {
+                return "確定要離開此頁面嗎？";
+            }
+        }
+    };
+
+
+    // 螢幕長度寬度
+
+    function button() {
+        console.log("width", document.documentElement.scrollWidth);//1003
+        console.log("height", document.documentElement.scrollHeight);//1504
+    }
+
+
+    // 自動聚焦
+    $('#loginModal').on('shown.bs.modal', function () {
+        var inputElement = document.getElementById('classNumber');
+        inputElement.focus();
+    });
+
+    // 取得所有 type="number" 的輸入欄位
+    const numberInputs = document.querySelectorAll('input[type="number"]');
+
+    // 迭代所有輸入欄位
+    numberInputs.forEach(function (input) {
+        // 當鍵盤按下時檢查輸入值是否為數字
+        input.addEventListener('keydown', function (event) {
+            // 取得按下的鍵盤按鍵的 keyCode
+            var keyCode = event.keyCode || event.which;
+
+            // 過濾掉非數字的按鍵 參考:https://www.ifreesite.com/typing-keycode.htm
+            if (keyCode !== 8 && keyCode !== 9 && keyCode !== 46 && keyCode !== 37 && keyCode !== 39 && keyCode !== 116 && keyCode !== 123 && (keyCode < 48 || keyCode > 57) && (keyCode < 96 || keyCode > 105)) {
+                event.preventDefault();
+            }
+        });
+
+        // 防止使用者透過拖曳或貼上非數字的值
+        input.addEventListener('input', function (event) {
+            var inputValue = input.value;
+
+            // 使用正則表達式過濾非數字的值
+            var numericValue = inputValue.replace(/[^0-9]/g, '');
+            input.value = numericValue;
+        });
+    });
+
+    //Enter事件
+    document.getElementById("classNumber")
+        .addEventListener("keyup", function (event) {
+            if (event.code === "Enter" && document.querySelector("#studentID").value != 0 && document.querySelector("#classNumber").value != 0) {
+                submitForm();
+            } else {
+                event.preventDefault();
+                if (document.getElementById("classNumber").value.length == 5) {
+                    document.getElementById("studentID").focus()
+                }
+            }
+        });
+
+    document.getElementById("studentID")
+        .addEventListener("keyup", function (event) {
+            if (event.code === "Enter" && document.querySelector("#studentID").value != 0 && document.querySelector("#classNumber").value != 0) {
+                submitForm();
+            } else {
+                if (document.getElementById("studentID").value.length == 8) {
+                    $("#loginModal").modal("hide");
+                }
+            }
+        });
+
+    function submitForm(ModelHrefMessage) {
+
+        // 獲取班級座號和學號的值
+        const classNumber = document.querySelector("#classNumber").value;
+        const studentID = document.querySelector("#studentID").value;
+
+        // 驗證班級座號和學號的值是否為5位數和8位數
+        let classNumberRegex = /^\d{5}$/;
+        let studentIDRegex = /^\d{8}$/;
+        let classNumberValid = classNumberRegex.test(classNumber);
+        let studentIDValid = studentIDRegex.test(studentID);
+
+        // 如果班級座號和學號不符合要求，就alert提示哪個不符合
+        if (!classNumberValid || !studentIDValid) {
+            let message = "";
+            if (classNumber === "" && studentID === "") {
+                message += "<span style='color:red;'>尚未</span>填寫表單";
+            } else if (classNumber === "") {
+                message += "班級座號<span style='color:red;'>尚未</span>填寫";
+            } else if (studentID === "") {
+                message += "學號<span style='color:red;'>尚未</span>填寫";
+            } else {
+                if (!classNumberValid && !studentIDValid) {
+                    message += "班級座號、學號<span style='color:red;'>格式錯誤</span>";
+                } else if (!classNumberValid) {
+                    message += "班級座號<span style='color:red;'>格式錯誤</span>";
+                } else if (!studentIDValid) {
+                    message += "學號<span style='color:red;'>格式錯誤</span>";
+                }
+            }
+            if (ModelHrefMessage === undefined) {
+                $("#TypeError .modal-dialog").css("width", "20%");
+                $("#TypeError .modal-dialog").css("top", "-40%");
+            } else {
+                message += ModelHrefMessage;
+            }
+            document.querySelector("#TypeError .modal-message").innerHTML = message;
+            $("#TypeError").modal("show");
+        } else {
+            $("#loginModal").modal("hide");
+        }
+    }
+
+
+
+        // //页面刚刚打开时检查是否有cookie信息，如果有则填入该信息。
+        // $(document).ready(function () {
+        //     //判断是否保存了classNumber这个变量的cookie信息
+        //     if ($.cookie("classNumber") != null) {
+        //         console.log("ok");
+        //         //往input#classNumber填入存到cookie中classNumber的值
+        //         $("#classNumber").val($.cookie("classNumber"));
+        //         //往input#studentID填入存到cookie中classNumber的值
+        //         $("#studentID").val($.cookie("studentID"));
+        //         //让“记住我”的复选框保持被选中状态
+        //         $("input:checkbox").attr("checked", true);
+        //     }
+        // });
+
+        // //登陆按钮触发的方法，用来验证身份和保存cookie信息
+        // function myLogin() {
+        //     classNumber = $("#classNumber").val(); //用户名
+        //     studentID = $("#studentID").val();
+
+        //     alert("登录成功！！");
+        //     //在返回登录成功的信息后
+
+        //     remember = $("#remember").is(":checked") ? 1 : 0;
+        //     //如果“记住我是被选中的，则保存姓名和密码信息”
+        //     if (remember == 1) {
+        //         $.cookie("classNumber", classNumber, {
+        //             //cookies信息的有效时常（7天）。
+        //             expires: 7
+        //         });
+        //         $.cookie("studentID", studentID, {
+        //             expires: 7
+        //         });
+        //     } else {
+        //         //如果“记住我是没被选中的，则移除之前已经保存过的信息。”
+        //         $.removeCookie("classNumber");
+        //         $.removeCookie("studentID");
+        //     }
+        // }
+
+</script>
+
+
+
+</html>
+
+<!--
+orders.forEach((order) => {
+                        const foodName = order.name;
+                        const foodQty = order.qty;
+                        const foodPrice = findFoodPrice(foodName);
+                        if (foodQty > 0) {
+                            foodCategory = findFoodCategory(foodName);
+                            if (currentCategory === "" || currentCategory === foodCategory) {
+                                currentItems += "<li>" + foodQty + "份" + foodName + "<span style="float:right;">$" + foodPrice.toFixed(2) + "</span></li>";
+                                totalQty += foodQty;
+                            } else {
+                                orderMsg += "<li>" + currentCategory + "</li><ul>" + currentItems + "</ul>";
+                                currentItems = "<li>" + foodQty + "份" + foodName + "<span style="float:right;">$" + foodPrice.toFixed(2) + "</span></li>";
+                                totalQty += foodQty;+
+                            }
+                            currentCategory = foodCategory;
+                            // 取得該餐點的價格，轉換為數字，乘上數量，加總到總價上
+                            totalPrice += parseInt(foodPrice) * foodQty;
+                        }
+                    });
+
+                    if (currentCategory !== "") {
+                        //orderMsg += "<li>" + currentCategory + "</li><ul>" + currentItems + "</ul>";
+                        orderMsg += "<ul>" + currentItems + "</ul>";
+                        orderMsg += "<hr/>";
+                        orderMsg += "<li>共計：" + totalQty + "份<span style="float:right;">總計：$" + totalPrice.toFixed(2) + "</span></li>";
+                        console.log(document.querySelector("#checkout .modal-message").innerHTML);
+                        document.querySelector("#checkout .modal-message").innerHTML = "您點了：" + "<div style="display: flex; justify-content: space-between; align-items: center;">" + "<span style="width: 45%;">&nbsp品名&nbsp</span>" + "<span style=" text-align: center;">數量</span>" + "<span style="width: 45%; text-align: right;">價格&nbsp&nbsp</span></div><hr/>"
+                        + orderMsg + "</ul>";
+                        document.querySelector(".modal-message2").style.display = "block";
+                    } else {
+                        console.log(document.querySelector("#checkout .modal-body").innerHTML);
+                        document.querySelector("#checkout .modal-message").innerHTML = "<div style="display: flex; justify-content: center; align-items: center; height: 100%;">您還未點餐</div>";
+                        document.querySelector(".modal-message2").style.display = "none";
+                    }
+-->
